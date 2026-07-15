@@ -8,7 +8,9 @@ export function SearchForm({ value, placeholderId, onSearch }: { value: string; 
   return (
     <form className="search-form" onSubmit={submit} role="search">
       <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={intl.formatMessage({ id: placeholderId })} />
-      <button className="button-primary" type="submit">{intl.formatMessage({ id: 'common.search' })}</button>
+      <button className="button-primary" type="submit">
+        {intl.formatMessage({ id: 'common.search' })}
+      </button>
       {value && <button className="button-secondary" type="button" onClick={() => { setQuery(''); onSearch('') }}>{intl.formatMessage({ id: 'common.clear' })}</button>}
     </form>
   )

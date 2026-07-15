@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest'
-import reducer, { login, logout, restoreSession } from './authSlice'
-import type { User } from '../../types/entities'
+import reducer, { login, logout, restoreSession } from '../src/store/features/authSlice'
+import type { User } from '../src/types/entities'
 
 const user: User = {
   id: 1,

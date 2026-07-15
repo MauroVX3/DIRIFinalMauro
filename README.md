@@ -1,6 +1,6 @@
 # Actividad Final de Mauro
 
-Aplicación final rica de de Desarrollo de Interfaces Ricos para Internet para descubrir películas y compartir valoraciones. 
+Aplicación final de Desarrollo de Interfaces Ricos para Internet para descubrir películas y compartir valoraciones. 
 
 Realizada por Mauro Varea Fernández.
 
@@ -16,7 +16,7 @@ Realizada por Mauro Varea Fernández.
 - Tailwind CSS y componentes accesibles de Headless UI.
 - Internacionalización con React Intl en castellano, inglés y asturiano.
 - Error Boundary en React y middleware centralizado de errores en Express.
-- Pruebas unitarias de reducers y del selector de idioma con Vitest.
+- Pruebas unitarias con Vitest.
 - Backend Express conectado a una base de datos MySQL local.
 
 ## Puesta en marcha
@@ -38,8 +38,7 @@ Requisitos: Node.js, npm y MySQL.
 
 3. Crea la base de datos ejecutando, en este orden, `server/database/schema.sql` y `server/database/seed.sql` desde MySQL Workbench o la consola de MySQL.
 
-4. Copia `server/.env.example` como `server/.env` y adapta la conexión. Cambia obligatoriamente `JWT_SECRET`.
-
+4. Copia `server/.env.example` como `server/.env` y adapta la conexión.
 5. Crea la cuenta administradora con los valores `ADMIN_NAME`, `ADMIN_EMAIL` y `ADMIN_PASSWORD` del archivo de entorno:
 
    ```bash
@@ -69,5 +68,3 @@ npm test
 ## Despliegue
 
 La aplicación usa `BrowserRouter` y toma la ruta base de `VITE_APP_BASE_URL`. Para GitHub Pages, esta variable debe coincidir exactamente con el nombre del repositorio, por ejemplo `/DIRIFinal/`. El frontend y el backend se despliegan por separado: GitHub Pages no puede ejecutar Express ni alojar MySQL. En producción, `VITE_API_URL` debe contener la URL pública HTTPS del backend antes de generar el frontend.
-
-No se deben subir a Git las credenciales de MySQL, el secreto JWT ni los archivos `.env`.

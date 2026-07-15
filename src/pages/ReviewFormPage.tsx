@@ -38,10 +38,23 @@ export default function ReviewFormPage() {
       <form className="form-card wide" onSubmit={submit}>
         <h1>{intl.formatMessage({ id: reviewId ? 'review.editTitle' : 'review.createTitle' }, { movie: movieTitle })}</h1>
         {error && <div className="alert error">{intl.formatMessage({ id: error })}</div>}
-        <fieldset className="rating-field"><legend>{intl.formatMessage({ id: 'review.rating' })}</legend><div>{[5, 4, 3, 2, 1].map((value) => <label key={value}><input type="radio" name="rating" value={value} checked={rating === value} onChange={() => setRating(value)} /><span aria-hidden="true">★</span><span className="sr-only">{value}</span></label>)}</div></fieldset>
-        <label>{intl.formatMessage({ id: 'review.title' })}<input required value={title} placeholder={intl.formatMessage({ id: 'review.titlePlaceholder' })} onChange={(event) => setTitle(event.target.value)} /></label>
-        <label>{intl.formatMessage({ id: 'review.content' })}<textarea required rows={7} value={content} placeholder={intl.formatMessage({ id: 'review.contentPlaceholder' })} onChange={(event) => setContent(event.target.value)} /></label>
-        <div className="form-actions"><button type="button" className="button-secondary" onClick={() => navigate(-1)}>{intl.formatMessage({ id: 'common.cancel' })}</button><button className="button-primary" type="submit" disabled={saving || !movieId}>{intl.formatMessage({ id: saving ? 'review.saving' : 'common.save' })}</button></div>
+        <fieldset className="rating-field"><legend>{intl.formatMessage({ id: 'review.rating' })}</legend>
+          <div>{[5, 4, 3, 2, 1].map((value) =>
+            <label key={value}>
+              <input type="radio" name="rating" value={value} checked={rating === value} onChange={() => setRating(value)} />
+              <span aria-hidden="true">★</span><span className="sr-only">{value}</span></label>)}
+          </div>
+        </fieldset>
+        <label>{intl.formatMessage({ id: 'review.title' })}
+          <input required value={title} placeholder={intl.formatMessage({ id: 'review.titlePlaceholder' })} onChange={(event) => setTitle(event.target.value)} />
+        </label>
+        <label>{intl.formatMessage({ id: 'review.content' })}
+          <textarea required rows={7} value={content} placeholder={intl.formatMessage({ id: 'review.contentPlaceholder' })} onChange={(event) => setContent(event.target.value)} />
+        </label>
+        <div className="form-actions">
+          <button type="button" className="button-secondary" onClick={() => navigate(-1)}>{intl.formatMessage({ id: 'common.cancel' })}</button>
+          <button className="button-primary" type="submit" disabled={saving || !movieId}>{intl.formatMessage({ id: saving ? 'review.saving' : 'common.save' })}</button>
+        </div>
       </form>
     </section>
   )

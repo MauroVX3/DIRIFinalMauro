@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import { IntlProvider } from 'react-intl'
 import { describe, expect, it } from 'vitest'
-import es from '../i18n/es.json'
-import { Rating } from './Rating'
+import es from '../src/i18n/es.json'
+import { Rating } from '../src/components/Rating'
 
 describe('Rating', () => {
   it('muestra la puntuación con un decimal y las estrellas correspondientes', () => {

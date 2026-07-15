@@ -30,13 +30,28 @@ export default function MovieFormPage() {
         <h1>{intl.formatMessage({ id: movieId ? 'admin.editMovie' : 'admin.newMovie' })}</h1>
         {error && <div className="alert error">{intl.formatMessage({ id: error })}</div>}
         <div className="form-grid">
-          <label className="full-field">{intl.formatMessage({ id: 'admin.titleField' })}<input required value={movie.title} onChange={(event) => update('title', event.target.value)} /></label>
-          <label>{intl.formatMessage({ id: 'admin.director' })}<input required value={movie.director} onChange={(event) => update('director', event.target.value)} /></label>
-          <label>{intl.formatMessage({ id: 'admin.genre' })}<input required value={movie.genre} onChange={(event) => update('genre', event.target.value)} /></label>
-          <label>{intl.formatMessage({ id: 'admin.year' })}<input required type="number" min="1888" max="2100" value={movie.releaseYear} onChange={(event) => update('releaseYear', Number(event.target.value))} /></label>
-          <label>{intl.formatMessage({ id: 'admin.duration' })}<input required type="number" min="1" value={movie.durationMinutes} onChange={(event) => update('durationMinutes', Number(event.target.value))} /></label>
-          <label className="full-field">{intl.formatMessage({ id: 'admin.poster' })}<input value={movie.posterPath} onChange={(event) => update('posterPath', event.target.value)} /><small>{intl.formatMessage({ id: 'admin.posterHelp' })}</small></label>
-          <label className="full-field">{intl.formatMessage({ id: 'admin.synopsis' })}<textarea required rows={7} value={movie.synopsis} onChange={(event) => update('synopsis', event.target.value)} /></label>
+          <label className="full-field">{intl.formatMessage({ id: 'admin.titleField' })}
+            <input required value={movie.title} onChange={(event) => update('title', event.target.value)} />
+          </label>
+          <label>{intl.formatMessage({ id: 'admin.director' })}
+            <input required value={movie.director} onChange={(event) => update('director', event.target.value)} />
+          </label>
+          <label>{intl.formatMessage({ id: 'admin.genre' })}
+            <input required value={movie.genre} onChange={(event) => update('genre', event.target.value)} />
+          </label>
+          <label>{intl.formatMessage({ id: 'admin.year' })}
+            <input required type="number" min="1888" max="2100" value={movie.releaseYear} onChange={(event) => update('releaseYear', Number(event.target.value))} />
+          </label>
+          <label>{intl.formatMessage({ id: 'admin.duration' })}
+            <input required type="number" min="1" value={movie.durationMinutes} onChange={(event) => update('durationMinutes', Number(event.target.value))} />
+          </label>
+          <label className="full-field">{intl.formatMessage({ id: 'admin.poster' })}
+            <input value={movie.posterPath} onChange={(event) => update('posterPath', event.target.value)} />
+            <small>{intl.formatMessage({ id: 'admin.posterHelp' })}</small>
+          </label>
+          <label className="full-field">{intl.formatMessage({ id: 'admin.synopsis' })}
+            <textarea required rows={7} value={movie.synopsis} onChange={(event) => update('synopsis', event.target.value)} />
+          </label>
         </div>
         <div className="form-actions"><button className="button-secondary" type="button" onClick={() => navigate(-1)}>{intl.formatMessage({ id: 'common.cancel' })}</button><button className="button-primary" type="submit" disabled={saving}>{intl.formatMessage({ id: saving ? 'admin.saving' : 'common.save' })}</button></div>
       </form>

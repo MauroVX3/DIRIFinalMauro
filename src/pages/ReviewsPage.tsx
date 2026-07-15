@@ -14,12 +14,18 @@ export default function ReviewsPage() {
 
   return (
     <section className="page-section container narrow">
-      <div className="page-heading"><h1>{intl.formatMessage({ id: 'reviews.title' })}</h1><p>{intl.formatMessage({ id: 'reviews.subtitle' })}</p></div>
+      <div className="page-heading">
+        <h1>{intl.formatMessage({ id: 'reviews.title' })}</h1>
+        <p>{intl.formatMessage({ id: 'reviews.subtitle' })}</p>
+      </div>
       <SearchForm value={search} placeholderId="reviews.searchPlaceholder" onSearch={setSearch} />
       {error && <div className="alert error">{intl.formatMessage({ id: error })}</div>}
       <div className="review-list">{items.map((review) => <ReviewCard key={review.id} review={review} />)}</div>
       {!loading && !items.length && <p className="page-message">{intl.formatMessage({ id: 'common.noResults' })}</p>}
-      {hasMore && <div className="load-sentinel"><button className="button-secondary" type="button" disabled={loading} onClick={() => dispatch(fetchReviews({ search, page: page + 1 }))}>{intl.formatMessage({ id: loading ? 'common.loading' : 'common.loadMore' })}</button></div>}
+      {hasMore &&
+        <div className="load-sentinel">
+          <button className="button-secondary" type="button" disabled={loading} onClick={() => dispatch(fetchReviews({ search, page: page + 1 }))}>{intl.formatMessage({ id: loading ? 'common.loading' : 'common.loadMore' })}</button>
+        </div>}
     </section>
   )
 }

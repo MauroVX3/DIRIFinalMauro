@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
-import { LanguageProvider } from '../contexts/LanguageContext'
-import { LanguageSelector } from './LanguageSelector'
+import { LanguageProvider } from '../src/contexts/LanguageContext'
+import { LanguageSelector } from '../src/components/LanguageSelector'
 
 describe('LanguageSelector', () => {
   it('cambia y conserva el idioma elegido', async () => {

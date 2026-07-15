@@ -19,7 +19,10 @@ export default function MyReviewsPage() {
       {loading && <p className="page-message">{intl.formatMessage({ id: 'common.loading' })}</p>}
       {error && <div className="alert error">{intl.formatMessage({ id: error })}</div>}
       <div className="review-list">
-        {myItems.map((review) => <ReviewCard key={review.id} review={review} actions={<><Link className="button-secondary" to={`/reviews/${review.id}/edit`}>{intl.formatMessage({ id: 'common.edit' })}</Link><button className="button-danger" type="button" onClick={() => setSelectedId(review.id)}>{intl.formatMessage({ id: 'common.delete' })}</button></>} />)}
+        {myItems.map((review) =>
+          <ReviewCard key={review.id} review={review} actions={<>
+            <Link className="button-secondary" to={`/reviews/${review.id}/edit`}>{intl.formatMessage({ id: 'common.edit' })}</Link>
+            <button className="button-danger" type="button" onClick={() => setSelectedId(review.id)}>{intl.formatMessage({ id: 'common.delete' })}</button></>} />)}
       </div>
       {!loading && !myItems.length && <p className="page-message">{intl.formatMessage({ id: 'myReviews.empty' })}</p>}
       <ConfirmDialog open={selectedId !== null} title={intl.formatMessage({ id: 'review.deleteTitle' })} message={intl.formatMessage({ id: 'review.deleteMessage' })} onClose={() => setSelectedId(null)} onConfirm={remove} />

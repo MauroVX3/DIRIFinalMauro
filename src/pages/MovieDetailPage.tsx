@@ -40,7 +40,10 @@ export default function MovieDetailPage() {
           <p className="eyebrow">{movie.genre} · {movie.releaseYear}</p>
           <h1>{movie.title}</h1>
           <p className="director">{intl.formatMessage({ id: 'movie.director' })}: {movie.director}</p>
-          {Number(movie.reviewCount) > 0 && <div className="detail-rating"><Rating value={Number(movie.averageRating)} /><span>{intl.formatMessage({ id: 'movie.reviewCount' }, { count: Number(movie.reviewCount) })}</span></div>}
+          {Number(movie.reviewCount) > 0 &&
+            <div className="detail-rating"><Rating value={Number(movie.averageRating)} />
+              <span>{intl.formatMessage({ id: 'movie.reviewCount' }, { count: Number(movie.reviewCount) })}</span>
+            </div>}
           <p className="synopsis">{movie.synopsis}</p>
           <p className="muted">{intl.formatMessage({ id: 'movie.duration' }, { minutes: movie.durationMinutes })}</p>
           <div className="card-actions">
@@ -52,7 +55,10 @@ export default function MovieDetailPage() {
       <div className="detail-reviews">
         <h2>{intl.formatMessage({ id: 'movie.reviews' })}</h2>
         {reviewsError && <div className="alert error">{intl.formatMessage({ id: reviewsError })}</div>}
-        {!reviewsError && (reviews.length ? <div className="review-list">{reviews.map((review) => <ReviewCard key={review.id} review={review} />)}</div> : <p className="page-message">{intl.formatMessage({ id: 'movie.noReviews' })}</p>)}
+        {!reviewsError &&
+          (reviews.length ?
+            <div className="review-list">{reviews.map((review) => <ReviewCard key={review.id} review={review} />)}</div> :
+            <p className="page-message">{intl.formatMessage({ id: 'movie.noReviews' })}</p>)}
       </div>
       <ConfirmDialog open={confirming} title={intl.formatMessage({ id: 'movie.deleteTitle' })} message={intl.formatMessage({ id: 'movie.deleteMessage' })} onClose={() => setConfirming(false)} onConfirm={removeMovie} />
     </section>
