@@ -1,0 +1,1 @@
+import{i as e,r as t}from"./react-intl-D5t8SAi3.js";var n=e();function r({value:e}){return(0,n.jsxs)(`span`,{className:`rating`,"aria-label":t().formatMessage({id:`movie.rating`},{rating:e}),children:[(0,n.jsxs)(`span`,{"aria-hidden":`true`,children:[`★`.repeat(Math.round(e)),`☆`.repeat(5-Math.round(e))]}),(0,n.jsx)(`span`,{children:e.toFixed(1)})]})}export{r as t};
